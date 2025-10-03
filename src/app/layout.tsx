@@ -9,6 +9,7 @@ import { PerformanceProvider } from '@/components/performance/PerformanceProvide
 import { ResourcePreloader, defaultCriticalResources, defaultPrefetchPages } from '@/components/performance/ResourcePreloader';
 import { SkipLinks } from '@/components/accessibility/SkipLinks';
 import { LanguageProvider } from '@/components/providers/LanguageProvider';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -110,25 +111,29 @@ export default function RootLayout({
     <html className="scroll-smooth">
       <head>
         <StructuredData type="organization" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
       >
-        <LanguageProvider>
-          <AnalyticsProvider>
-            <PerformanceProvider>
-              <SkipLinks />
-              <ResourcePreloader 
-                criticalResources={defaultCriticalResources}
-                prefetchPages={defaultPrefetchPages}
-              />
-              <Navigation />
-              <main id="main-content" className="relative" tabIndex={-1}>
-                {children}
-              </main>
-            </PerformanceProvider>
-          </AnalyticsProvider>
-        </LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <AnalyticsProvider>
+              <PerformanceProvider>
+                <SkipLinks />
+                <ResourcePreloader 
+                  criticalResources={defaultCriticalResources}
+                  prefetchPages={defaultPrefetchPages}
+                />
+                <Navigation />
+                <main id="main-content" className="relative" tabIndex={-1}>
+                  {children}
+                </main>
+              </PerformanceProvider>
+            </AnalyticsProvider>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LanguageToggle } from '@/components/ui/LanguageToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 interface NavigationProps {
   className?: string;
@@ -120,8 +121,9 @@ export default function Navigation({ className }: NavigationProps) {
             </div>
           </div>
 
-          {/* Language Toggle & CTA Button */}
+          {/* Theme Toggle, Language Toggle & CTA Button */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle variant="button" />
             <LanguageToggle variant="button" />
             <a
               href="#contact"
@@ -140,8 +142,9 @@ export default function Navigation({ className }: NavigationProps) {
             </a>
           </div>
 
-          {/* Mobile Language Toggle & Menu Button */}
+          {/* Mobile Theme Toggle, Language Toggle & Menu Button */}
           <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle variant="button" className="scale-90" />
             <LanguageToggle variant="button" className="scale-90" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

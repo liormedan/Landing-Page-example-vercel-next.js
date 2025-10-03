@@ -2,32 +2,63 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 
+/* Light Mode - Professional Israeli Business Theme */
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  /* Primary Brand Colors - Modern Blue with Israeli Tech Vibe */
+  --primary: 210 100% 50%;        /* Bright professional blue #0080ff */
+  --primary-foreground: 0 0% 100%; /* Pure white text */
+  --primary-hover: 210 100% 45%;   /* Darker blue for hover */
+  
+  /* Secondary Colors - Warm and Welcoming */
+  --secondary: 45 100% 95%;        /* Warm cream background */
+  --secondary-foreground: 210 15% 20%; /* Dark blue-gray text */
+  
+  /* Background System */
+  --background: 0 0% 100%;         /* Pure white */
+  --foreground: 210 15% 15%;       /* Very dark blue-gray for text */
+  
+  /* Card System */
+  --card: 0 0% 100%;               /* White cards */
+  --card-foreground: 210 15% 15%;  /* Dark text on cards */
+  --card-border: 210 20% 92%;      /* Light blue-gray borders */
+  
+  /* Interactive Elements */
+  --muted: 210 25% 96%;            /* Light blue-gray backgrounds */
+  --muted-foreground: 210 10% 45%; /* Medium gray text */
+  --accent: 45 100% 88%;           /* Warm accent color */
+  --accent-foreground: 210 15% 20%; /* Dark text on accent */
+  
+  /* Form Elements */
+  --input: 210 20% 94%;            /* Light input backgrounds */
+  --border: 210 20% 88%;           /* Border color */
+  --ring: 210 100% 50%;            /* Focus ring - same as primary */
+  
+  /* Status Colors */
+  --success: 142 76% 36%;          /* Professional green */
+  --success-foreground: 0 0% 100%; /* White text on success */
+  --warning: 38 92% 50%;           /* Warm orange */
+  --warning-foreground: 0 0% 100%; /* White text on warning */
+  --destructive: 0 84% 60%;        /* Professional red */
+  --destructive-foreground: 0 0% 100%; /* White text on destructive */
+  
+  /* Popover System */
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96%;
-  --secondary-foreground: 222.2 84% 4.9%;
-  --muted: 210 40% 96%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96%;
-  --accent-foreground: 222.2 84% 4.9%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
-  --radius: 0.5rem;
+  --popover-foreground: 210 15% 15%;
+  
+  /* Chart Colors - Professional Data Visualization */
+  --chart-1: 210 100% 50%;         /* Primary blue */
+  --chart-2: 142 76% 36%;          /* Success green */
+  --chart-3: 38 92% 50%;           /* Warning orange */
+  --chart-4: 271 81% 56%;          /* Purple */
+  --chart-5: 0 84% 60%;            /* Destructive red */
+  
+  /* Design System */
+  --radius: 0.75rem;               /* Slightly more rounded for modern feel */
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(220 100% 60%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(45 100% 95%) 0%, hsl(45 100% 88%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(210 100% 97%) 0%, hsl(220 100% 95%) 100%);
 }
 
 @theme inline {
@@ -37,41 +68,87 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+/* Dark Mode - Professional Night Theme */
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 84% 4.9%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 94.1%;
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
+  /* Primary Brand Colors - Bright and Accessible in Dark Mode */
+  --primary: 210 100% 65%;         /* Brighter blue for dark backgrounds */
+  --primary-foreground: 210 25% 8%; /* Very dark blue for contrast */
+  --primary-hover: 210 100% 70%;   /* Even brighter for hover */
+  
+  /* Secondary Colors - Warm Dark Tones */
+  --secondary: 210 15% 12%;        /* Dark blue-gray */
+  --secondary-foreground: 210 15% 85%; /* Light text */
+  
+  /* Background System - Rich Dark Blues */
+  --background: 210 25% 6%;        /* Very dark blue-black */
+  --foreground: 210 15% 92%;       /* Light gray-white text */
+  
+  /* Card System - Elevated Dark Surfaces */
+  --card: 210 20% 9%;              /* Dark blue cards */
+  --card-foreground: 210 15% 90%;  /* Light text on cards */
+  --card-border: 210 20% 15%;      /* Subtle borders */
+  
+  /* Interactive Elements */
+  --muted: 210 20% 12%;            /* Muted dark backgrounds */
+  --muted-foreground: 210 10% 65%; /* Medium light text */
+  --accent: 210 15% 15%;           /* Accent backgrounds */
+  --accent-foreground: 210 15% 85%; /* Light text on accent */
+  
+  /* Form Elements */
+  --input: 210 20% 11%;            /* Dark input backgrounds */
+  --border: 210 20% 18%;           /* Border color */
+  --ring: 210 100% 65%;            /* Focus ring - bright primary */
+  
+  /* Status Colors - Accessible in Dark Mode */
+  --success: 142 70% 45%;          /* Brighter green for dark mode */
+  --success-foreground: 142 30% 10%; /* Dark green text */
+  --warning: 38 85% 55%;           /* Brighter orange */
+  --warning-foreground: 38 30% 10%; /* Dark orange text */
+  --destructive: 0 75% 65%;        /* Brighter red */
+  --destructive-foreground: 0 25% 10%; /* Dark red text */
+  
+  /* Popover System */
+  --popover: 210 20% 9%;
+  --popover-foreground: 210 15% 90%;
+  
+  /* Chart Colors - Vibrant for Dark Backgrounds */
+  --chart-1: 210 100% 65%;         /* Bright primary blue */
+  --chart-2: 142 70% 45%;          /* Bright green */
+  --chart-3: 38 85% 55%;           /* Bright orange */
+  --chart-4: 271 75% 65%;          /* Bright purple */
+  --chart-5: 0 75% 65%;            /* Bright red */
+  
+  /* Gradients for Dark Mode */
+  --gradient-primary: linear-gradient(135deg, hsl(210 100% 65%) 0%, hsl(220 100% 70%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(210 20% 9%) 0%, hsl(210 15% 12%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(210 25% 8%) 0%, hsl(220 20% 10%) 100%);
 }
 
 body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
   border-color: hsl(var(--border));
+}
+
+/* Smooth transitions for theme changes */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Disable transitions during theme change to prevent flash */
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition: none !important;
 }
 
 /* RTL Support */
@@ -133,14 +210,101 @@ body {
   margin-left: 1rem;
 }
 
+/* Enhanced Visual Effects */
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
-/* Scroll offset for fixed navigation */
-html {
-  scroll-padding-top: 4rem;
+/* Professional Gradients */
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+.gradient-hero {
+  background: var(--gradient-hero);
+}
+
+/* Glass morphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced shadows */
+.shadow-soft {
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .shadow-soft {
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.3), 0 10px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.dark .shadow-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Professional hover effects */
+.hover-lift {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Animated backgrounds */
+.animated-bg {
+  background: linear-gradient(-45deg, hsl(210 100% 97%), hsl(220 100% 95%), hsl(210 100% 97%), hsl(200 100% 95%));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.dark .animated-bg {
+  background: linear-gradient(-45deg, hsl(210 25% 8%), hsl(220 20% 10%), hsl(210 25% 8%), hsl(200 20% 10%));
+  background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Professional text effects */
+.text-gradient {
+  background: linear-gradient(135deg, hsl(210 100% 50%), hsl(220 100% 60%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(135deg, hsl(210 100% 65%), hsl(220 100% 70%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Custom scrollbar */

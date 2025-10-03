@@ -274,6 +274,11 @@ export interface Translations {
     closeMenu: string;
     languageSelector: string;
     currentLanguage: string;
+    themeSelector: string;
+    currentTheme: string;
+    lightMode: string;
+    darkMode: string;
+    systemMode: string;
   };
 }
 
@@ -544,7 +549,12 @@ export const en: Translations = {
     openMenu: 'Open main menu',
     closeMenu: 'Close main menu',
     languageSelector: 'Language selector',
-    currentLanguage: 'Current language'
+    currentLanguage: 'Current language',
+    themeSelector: 'Theme selector',
+    currentTheme: 'Current theme',
+    lightMode: 'Light mode',
+    darkMode: 'Dark mode',
+    systemMode: 'System mode'
   }
 };
 
@@ -815,7 +825,12 @@ export const he: Translations = {
     openMenu: 'פתח תפריט ראשי',
     closeMenu: 'סגור תפריט ראשי',
     languageSelector: 'בורר שפה',
-    currentLanguage: 'שפה נוכחית'
+    currentLanguage: 'שפה נוכחית',
+    themeSelector: 'בורר מצב תצוגה',
+    currentTheme: 'מצב תצוגה נוכחי',
+    lightMode: 'מצב בהיר',
+    darkMode: 'מצב כהה',
+    systemMode: 'מצב אוטומטי'
   }
 };
 

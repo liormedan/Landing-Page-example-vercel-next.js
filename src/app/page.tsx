@@ -64,7 +64,7 @@ export default function Home() {
               }
             ].map((plan, index) => (
               <article key={index} role="listitem">
-                <Card className={`relative ${plan.popular ? 'border-primary shadow-lg' : ''}`}>
+                <Card className={`relative hover-lift ${plan.popular ? 'border-primary shadow-glow' : 'shadow-soft'}`}>
                   {plan.popular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-primary text-primary-foreground">
@@ -115,7 +115,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Portfolio projects">
               {[1, 2, 3, 4, 5, 6].map((item) => (
                 <article key={item} role="listitem">
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+                  <Card className="overflow-hidden hover-lift shadow-soft">
                     <div className="h-48 bg-gradient-to-br from-primary to-secondary" role="img" aria-label={`${t.portfolio.projectTitle} ${item} preview image`} />
                     <CardContent className="p-6">
                       <CardTitle as="h3" className="text-xl font-semibold mb-2">{t.portfolio.projectTitle} {item}</CardTitle>

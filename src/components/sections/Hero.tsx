@@ -35,13 +35,13 @@ const Hero: React.FC = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative bg-gradient-to-br from-blue-50 to-purple-50 py-20 lg:py-32 overflow-hidden"
+      className="relative animated-bg py-20 lg:py-32 overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full blur-xl" />
-        <div className="absolute top-40 right-20 w-32 h-32 bg-purple-500 rounded-full blur-xl" />
-        <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-blue-400 rounded-full blur-xl" />
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0 opacity-20 dark:opacity-10">
+        <div className="absolute top-10 left-10 w-20 h-20 bg-primary rounded-full blur-xl animate-pulse" />
+        <div className="absolute top-40 right-20 w-32 h-32 bg-primary/70 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-primary/50 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
