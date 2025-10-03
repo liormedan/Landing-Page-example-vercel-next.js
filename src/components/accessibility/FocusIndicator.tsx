@@ -21,6 +21,14 @@ export function FocusIndicator({
   const [isKeyboardFocus, setIsKeyboardFocus] = useState(false);
   const [lastInteractionWasKeyboard, setLastInteractionWasKeyboard] = useState(false);
 
+  const handleFocus = () => {
+    setIsKeyboardFocus(lastInteractionWasKeyboard || showOnMouseFocus);
+  };
+
+  const handleBlur = () => {
+    setIsKeyboardFocus(false);
+  };
+
   useEffect(() => {
     const handleKeyDown = () => {
       setLastInteractionWasKeyboard(true);
@@ -30,14 +38,6 @@ export function FocusIndicator({
       setLastInteractionWasKeyboard(false);
     };
 
-    const handleFocus = () => {
-      setIsKeyboardFocus(lastInteractionWasKeyboard || showOnMouseFocus);
-    };
-
-    const handleBlur = () => {
-      setIsKeyboardFocus(false);
-    };
-
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('mousedown', handleMouseDown);
 
@@ -45,7 +45,7 @@ export function FocusIndicator({
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('mousedown', handleMouseDown);
     };
-  }, [lastInteractionWasKeyboard, showOnMouseFocus]);
+  }, []);
 
   return (
     <div

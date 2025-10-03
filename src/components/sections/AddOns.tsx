@@ -26,7 +26,11 @@ interface AddOn {
   popular?: boolean
 }
 
-export const AddOns: React.FC = () => {
+interface AddOnsProps {
+  className?: string
+}
+
+export const AddOns: React.FC<AddOnsProps> = ({ className }) => {
   const { t, locale } = useLanguage();
 
   const addOns: AddOn[] = [
@@ -73,29 +77,8 @@ export const AddOns: React.FC = () => {
       icon: HeadphonesIcon,
       benefits: t.addons.items.monthlySupport.features
     }
-]
+  ];
 
-interface AddOnsProps {
-  className?: string
-}
-
-  const handleContactForAddOn = () => {
-    // Scroll to contact form with add-on pre-selected
-    const contactSection = document.getElementById('contact')
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const handleCustomSolution = () => {
-    // Scroll to contact form for custom solutions
-    const contactSection = document.getElementById('contact')
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  return (
   const handleContactForAddOn = () => {
     // Scroll to contact form with add-on pre-selected
     const contactSection = document.getElementById('contact')

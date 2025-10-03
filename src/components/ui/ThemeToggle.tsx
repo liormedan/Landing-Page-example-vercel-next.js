@@ -35,7 +35,7 @@ export function ThemeToggle({ className, variant = 'dropdown' }: ThemeToggleProp
   ];
 
   const currentTheme = themes.find(t => t.value === theme) || themes[0];
-  const CurrentIcon = currentTheme.icon;
+  const CurrentIcon = currentTheme!.icon;
 
   const toggleTheme = () => {
     const nextTheme = theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light';
@@ -69,11 +69,11 @@ export function ThemeToggle({ className, variant = 'dropdown' }: ThemeToggleProp
           className
         )}
         aria-label={locale === 'he' ? 'החלף מצב תצוגה' : 'Toggle theme'}
-        title={`${locale === 'he' ? 'מצב נוכחי' : 'Current theme'}: ${currentTheme.label}`}
+        title={`${locale === 'he' ? 'מצב נוכחי' : 'Current theme'}: ${currentTheme!.label}`}
       >
         <CurrentIcon className="w-4 h-4" aria-hidden="true" />
         <span className="hidden sm:inline">
-          {currentTheme.label}
+          {currentTheme!.label}
         </span>
       </button>
     );
@@ -96,7 +96,7 @@ export function ThemeToggle({ className, variant = 'dropdown' }: ThemeToggleProp
       >
         <CurrentIcon className="w-4 h-4" aria-hidden="true" />
         <span className="hidden sm:inline">
-          {currentTheme.label}
+          {currentTheme!.label}
         </span>
         <svg
           className={cn(

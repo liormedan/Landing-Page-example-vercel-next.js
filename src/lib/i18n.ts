@@ -37,7 +37,7 @@ export interface Translations {
     contact: string;
     getQuote: string;
   };
-  
+
   // Hero Section
   hero: {
     title: string;
@@ -59,7 +59,7 @@ export interface Translations {
       globalCdn: string;
     };
   };
-  
+
   // Benefits Section
   benefits: {
     title: string;
@@ -91,7 +91,7 @@ export interface Translations {
       };
     };
   };
-  
+
   // Pricing Section
   pricing: {
     title: string;
@@ -115,7 +115,7 @@ export interface Translations {
     };
     choosePlan: string;
   };
-  
+
   // Portfolio Section
   portfolio: {
     title: string;
@@ -124,7 +124,7 @@ export interface Translations {
     viewDetails: string;
     technologies: string;
   };
-  
+
   // Contact Section
   contact: {
     title: string;
@@ -166,7 +166,7 @@ export interface Translations {
       message: string;
     };
   };
-  
+
   // Process Section
   process: {
     title: string;
@@ -190,7 +190,7 @@ export interface Translations {
       };
     };
   };
-  
+
   // About Section
   about: {
     title: string;
@@ -243,7 +243,7 @@ export interface Translations {
     getQuote: string;
     popular: string;
   };
-  
+
   // Footer
   footer: {
     description: string;
@@ -252,7 +252,7 @@ export interface Translations {
     contact: string;
     rights: string;
   };
-  
+
   // Common
   common: {
     loading: string;
@@ -264,7 +264,7 @@ export interface Translations {
     getStarted: string;
     contactUs: string;
   };
-  
+
   // Accessibility
   a11y: {
     skipToContent: string;
@@ -293,7 +293,7 @@ export const en: Translations = {
     contact: 'Contact',
     getQuote: 'Get Quote'
   },
-  
+
   hero: {
     title: 'Professional Landing Pages Built for Results',
     subtitle: 'Professional Landing Pages',
@@ -314,7 +314,7 @@ export const en: Translations = {
       globalCdn: 'Global CDN'
     }
   },
-  
+
   benefits: {
     title: 'Why Choose Our Landing Page Service?',
     subtitle: 'Built with modern technology and best practices',
@@ -345,7 +345,7 @@ export const en: Translations = {
       }
     }
   },
-  
+
   pricing: {
     title: 'Simple, Transparent Pricing',
     plans: {
@@ -368,7 +368,7 @@ export const en: Translations = {
     },
     choosePlan: 'Choose Plan'
   },
-  
+
   portfolio: {
     title: 'Our Work',
     projectTitle: 'Project',
@@ -376,7 +376,7 @@ export const en: Translations = {
     viewDetails: 'View Details →',
     technologies: 'Next.js • Vercel'
   },
-  
+
   contact: {
     title: 'Ready to Get Started?',
     subtitle: "Let's discuss your project and create a landing page that converts visitors into customers. Fill out the form below or contact us directly.",
@@ -417,7 +417,7 @@ export const en: Translations = {
       message: 'Failed to send message. Please try again or contact us directly.'
     }
   },
-  
+
   process: {
     title: 'Our Process',
     subtitle: 'From concept to launch in 5 working days',
@@ -440,7 +440,7 @@ export const en: Translations = {
       }
     }
   },
-  
+
   about: {
     title: 'About Us',
     description: 'We specialize in creating high-converting landing pages using modern web technologies. Our focus is on performance, accessibility, and results.',
@@ -522,7 +522,7 @@ export const en: Translations = {
     getQuote: 'Get Quote',
     popular: 'Popular'
   },
-  
+
   footer: {
     description: 'Professional landing page development service using React, Next.js, and Vercel.',
     quickLinks: 'Quick Links',
@@ -530,7 +530,7 @@ export const en: Translations = {
     contact: 'Contact',
     rights: 'All rights reserved.'
   },
-  
+
   common: {
     loading: 'Loading...',
     error: 'Error',
@@ -541,7 +541,7 @@ export const en: Translations = {
     getStarted: 'Get Started',
     contactUs: 'Contact Us'
   },
-  
+
   a11y: {
     skipToContent: 'Skip to main content',
     skipToNavigation: 'Skip to navigation',
@@ -569,7 +569,7 @@ export const he: Translations = {
     contact: 'צור קשר',
     getQuote: 'קבל הצעת מחיר'
   },
-  
+
   hero: {
     title: 'דפי נחיתה מקצועיים שבנויים לתוצאות',
     subtitle: 'דפי נחיתה מקצועיים',
@@ -590,7 +590,7 @@ export const he: Translations = {
       globalCdn: 'CDN גלובלי'
     }
   },
-  
+
   benefits: {
     title: 'למה לבחור בשירות דפי הנחיתה שלנו?',
     subtitle: 'נבנה עם טכנולוגיה מודרנית ושיטות עבודה מתקדמות המותאמות לשוק הישראלי',
@@ -621,7 +621,7 @@ export const he: Translations = {
       }
     }
   },
-  
+
   pricing: {
     title: 'תמחור פשוט ושקוף',
     plans: {
@@ -644,7 +644,7 @@ export const he: Translations = {
     },
     choosePlan: 'בחר תוכנית'
   },
-  
+
   portfolio: {
     title: 'העבודות שלנו',
     projectTitle: 'פרויקט',
@@ -652,7 +652,7 @@ export const he: Translations = {
     viewDetails: 'צפה בפרטים ←',
     technologies: 'Next.js • Vercel'
   },
-  
+
   contact: {
     title: 'מוכנים להתחיל?',
     subtitle: 'בואו נדבר על הפרויקט שלכם וניצור דף נחיתה שהופך מבקרים ללקוחות. מלאו את הטופס למטה או צרו קשר ישירות.',
@@ -693,7 +693,7 @@ export const he: Translations = {
       message: 'שליחת ההודעה נכשלה. אנא נסו שוב או צרו קשר ישירות.'
     }
   },
-  
+
   process: {
     title: 'התהליך שלנו',
     subtitle: 'מרעיון להשקה תוך 5 ימי עבודה - תהליך מהיר ויעיל',
@@ -716,7 +716,7 @@ export const he: Translations = {
       }
     }
   },
-  
+
   about: {
     title: 'אודותינו - מומחים בדפי נחיתה',
     description: 'אנחנו מתמחים ביצירת דפי נחיתה עם שיעור המרה גבוה במיוחד עבור עסקים ישראליים. משלבים טכנולוגיות מתקדמות עם הבנה עמוקה של השוק המקומי, תרבות ושפה עברית. כל פרויקט מותאם אישית למטרות העסק ולקהל היעד.',
@@ -798,7 +798,7 @@ export const he: Translations = {
     getQuote: 'קבל הצעת מחיר',
     popular: 'פופולרי'
   },
-  
+
   footer: {
     description: 'שירות פיתוח דפי נחיתה מקצועי באמצעות React, Next.js ו-Vercel.',
     quickLinks: 'קישורים מהירים',
@@ -806,7 +806,7 @@ export const he: Translations = {
     contact: 'צור קשר',
     rights: 'כל הזכויות שמורות.'
   },
-  
+
   common: {
     loading: 'טוען...',
     error: 'שגיאה',
@@ -817,7 +817,7 @@ export const he: Translations = {
     getStarted: 'התחל',
     contactUs: 'צור קשר'
   },
-  
+
   a11y: {
     skipToContent: 'דלג לתוכן הראשי',
     skipToNavigation: 'דלג לניווט',
@@ -844,11 +844,11 @@ export const translations: Record<Locale, Translations> = {
 export function getTranslation(locale: Locale, key: string): string {
   const keys = key.split('.');
   let value: any = translations[locale];
-  
+
   for (const k of keys) {
     value = value?.[k];
   }
-  
+
   return value || key;
 }
 
