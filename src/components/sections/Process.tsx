@@ -12,6 +12,7 @@ import {
   Rocket,
   Clock
 } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 interface ProcessStep {
   id: number;
@@ -22,76 +23,78 @@ interface ProcessStep {
   details: string[];
 }
 
-const processSteps: ProcessStep[] = [
-  {
-    id: 1,
-    title: 'Specification',
-    description: 'Understanding your needs and defining project requirements',
-    duration: '1 day',
-    icon: <FileText className="w-6 h-6" />,
-    details: [
-      'Requirements gathering',
-      'Content planning',
-      'Technical specifications',
-      'Timeline confirmation'
-    ]
-  },
-  {
-    id: 2,
-    title: 'Design',
-    description: 'Creating visual mockups and user experience design',
-    duration: '1-2 days',
-    icon: <Palette className="w-6 h-6" />,
-    details: [
-      'Wireframe creation',
-      'Visual design',
-      'Mobile optimization',
-      'Client feedback integration'
-    ]
-  },
-  {
-    id: 3,
-    title: 'Development',
-    description: 'Building your landing page with modern technologies',
-    duration: '2-3 days',
-    icon: <Code className="w-6 h-6" />,
-    details: [
-      'React/Next.js development',
-      'Responsive implementation',
-      'Form integration',
-      'Performance optimization'
-    ]
-  },
-  {
-    id: 4,
-    title: 'Deployment & Optimization',
-    description: 'Launching your site and ensuring optimal performance',
-    duration: '1 day',
-    icon: <Rocket className="w-6 h-6" />,
-    details: [
-      'Vercel deployment',
-      'Domain setup',
-      'SEO optimization',
-      'Analytics integration'
-    ]
-  }
-];
-
 const Process: React.FC = () => {
+  const { t } = useLanguage();
+
+  const processSteps: ProcessStep[] = [
+    {
+      id: 1,
+      title: t.process.steps.consultation.title,
+      description: t.process.steps.consultation.description,
+      duration: 'יום 1',
+      icon: <FileText className="w-6 h-6" />,
+      details: [
+        'איסוף דרישות מפורט',
+        'תכנון תוכן ומסרים',
+        'מפרט טכני',
+        'אישור לוח זמנים'
+      ]
+    },
+    {
+      id: 2,
+      title: t.process.steps.design.title,
+      description: t.process.steps.design.description,
+      duration: 'ימים 2-1',
+      icon: <Palette className="w-6 h-6" />,
+      details: [
+        'יצירת wireframes',
+        'עיצוב ויזואלי',
+        'אופטימיזציה למובייל',
+        'שילוב משוב הלקוח'
+      ]
+    },
+    {
+      id: 3,
+      title: t.process.steps.development.title,
+      description: t.process.steps.development.description,
+      duration: 'ימים 3-2',
+      icon: <Code className="w-6 h-6" />,
+      details: [
+        'פיתוח React/Next.js',
+        'יישום רספונסיבי',
+        'אינטגרציית טפסים',
+        'אופטימיזציית ביצועים'
+      ]
+    },
+    {
+      id: 4,
+      title: t.process.steps.launch.title,
+      description: t.process.steps.launch.description,
+      duration: 'יום 1',
+      icon: <Rocket className="w-6 h-6" />,
+      details: [
+        'פריסה על Vercel',
+        'הגדרת דומיין',
+        'אופטימיזציית SEO',
+        'אינטגרציית אנליטיקס'
+      ]
+    }
+  ];
+
   return (
     <section className="py-20 lg:py-32 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Our Development Process
+            {t.process.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-            A streamlined 4-phase approach that delivers your landing page in approximately 5 working days
+            {t.process.subtitle}
           </p>
           <div className="flex items-center justify-center gap-2 text-blue-600">
             <Clock className="w-5 h-5" />
-            <span className="font-semibold">Total Timeline: ~5 Working Days</span>
+            <span className="font-semibold">סה"כ זמן ביצוע: ~5 ימי עבודה</span>
           </div>
         </div>
 

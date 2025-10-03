@@ -6,8 +6,10 @@ import { Badge } from '@/components/ui/Badge';
 import { Shield, Zap, Globe } from 'lucide-react';
 import { analytics } from '@/lib/analytics';
 import { useScrollTracking } from '@/hooks/useScrollTracking';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const Hero: React.FC = () => {
+  const { t, isRTL } = useLanguage();
   const sectionRef = useScrollTracking({ sectionName: 'hero' });
 
   const handleGetQuote = () => {
@@ -48,54 +50,52 @@ const Hero: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Badge variant="success" size="md" className="flex items-center gap-2">
               <Shield className="w-4 h-4" />
-              SSL Secured
+              {t.hero.badges.sslSecured}
             </Badge>
             <Badge variant="info" size="md" className="flex items-center gap-2">
               <Zap className="w-4 h-4" />
-              Fast Delivery
+              {t.hero.badges.fastDelivery}
             </Badge>
             <Badge variant="default" size="md" className="flex items-center gap-2">
               <Globe className="w-4 h-4" />
-              Global CDN
+              {t.hero.badges.globalCdn}
             </Badge>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Professional Landing Pages
-            <span className="block text-blue-600">Built for Results</span>
+          <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight ${isRTL ? 'text-right' : 'text-center'}`}>
+            {t.hero.title}
           </h1>
 
           {/* Value Proposition */}
-          <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Get a high-converting landing page built with React, Next.js, and deployed on Vercel. 
-            Fast delivery, RTL support, and performance optimization included.
+          <p className={`text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed ${isRTL ? 'text-right' : 'text-center'}`}>
+            {t.hero.description}
           </p>
 
           {/* Key Benefits */}
           <div className="flex flex-wrap justify-center gap-6 mb-10 text-gray-700">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span className="text-lg">5-day delivery</span>
+              <span className="text-lg">{t.hero.benefits.delivery}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span className="text-lg">Mobile optimized</span>
+              <span className="text-lg">{t.hero.benefits.mobile}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span className="text-lg">SEO ready</span>
+              <span className="text-lg">{t.hero.benefits.seo}</span>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
             <Button
               size="lg"
               onClick={handleGetQuote}
               className="min-w-[200px]"
             >
-              Get Instant Quote
+              {t.hero.cta.getQuote}
             </Button>
             <Button
               variant="outline"
@@ -103,13 +103,13 @@ const Hero: React.FC = () => {
               onClick={handleViewPortfolio}
               className="min-w-[200px]"
             >
-              View Portfolio
+              {t.hero.cta.viewPortfolio}
             </Button>
           </div>
 
           {/* Additional Trust Indicator */}
           <p className="text-sm text-gray-500 mt-6">
-            ✨ Trusted by 50+ businesses • No setup fees • 30-day support included
+            {t.hero.trustIndicator}
           </p>
         </div>
       </div>

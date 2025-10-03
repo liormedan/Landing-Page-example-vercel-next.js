@@ -3,6 +3,8 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
+import { useLanguage } from '@/hooks/useLanguage';
+
 interface SkipLink {
   href: string;
   label: string;
@@ -13,13 +15,16 @@ interface SkipLinksProps {
   className?: string;
 }
 
-const defaultLinks: SkipLink[] = [
-  { href: '#main-content', label: 'Skip to main content' },
-  { href: '#navigation', label: 'Skip to navigation' },
-  { href: '#contact', label: 'Skip to contact form' },
-];
-
-export function SkipLinks({ links = defaultLinks, className }: SkipLinksProps) {
+export function SkipLinks({ links, className }: SkipLinksProps) {
+  const { t } = useLanguage();
+  
+  const defaultLinks: SkipLink[] = [
+    { href: '#main-content', label: t.a11y.skipToContent },
+    { href: '#navigation', label: t.a11y.skipToNavigation },
+    { href: '#contact', label: t.a11y.skipToContact },
+  ];
+  
+  const skipLinks = links || defaultLinks;
   const handleSkipClick = (href: string, event: React.MouseEvent) => {
     event.preventDefault();
     
@@ -47,7 +52,7 @@ export function SkipLinks({ links = defaultLinks, className }: SkipLinksProps) {
 
   return (
     <div className={cn('skip-links', className)}>
-      {links.map((link, index) => (
+      {skipLinks.map((link, index) => (
         <a
           key={index}
           href={link.href}

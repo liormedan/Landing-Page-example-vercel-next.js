@@ -77,10 +77,16 @@ body {
 /* RTL Support */
 [dir='rtl'] {
   text-align: right;
+  font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
 }
 
 [dir='ltr'] {
   text-align: left;
+}
+
+/* Hebrew font optimization */
+[dir='rtl'] body {
+  font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
 }
 
 /* RTL-specific utilities */

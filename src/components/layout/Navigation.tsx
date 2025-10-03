@@ -2,24 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/hooks/useLanguage';
+import { LanguageToggle } from '@/components/ui/LanguageToggle';
 
 interface NavigationProps {
   className?: string;
 }
 
-const navigationItems = [
-  { href: '#hero', label: 'Home', labelHe: 'בית' },
-  { href: '#benefits', label: 'Benefits', labelHe: 'יתרונות' },
-  { href: '#pricing', label: 'Pricing', labelHe: 'מחירים' },
-  { href: '#portfolio', label: 'Portfolio', labelHe: 'תיק עבודות' },
-  { href: '#about', label: 'About', labelHe: 'אודות' },
-  { href: '#contact', label: 'Contact', labelHe: 'צור קשר' },
-];
-
 export default function Navigation({ className }: NavigationProps) {
+  const { t, isRTL } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navigationItems = [
+    { href: '#hero', label: t.nav.home },
+    { href: '#benefits', label: t.nav.benefits },
+    { href: '#pricing', label: t.nav.pricing },
+    { href: '#portfolio', label: t.nav.portfolio },
+    { href: '#about', label: t.nav.about },
+    { href: '#contact', label: t.nav.contact },
+  ];
 
   // Handle scroll behavior for sticky navigation
   useEffect(() => {
@@ -45,7 +48,7 @@ export default function Navigation({ className }: NavigationProps) {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navigationItems]);
 
   // Smooth scroll to section
   const scrollToSection = (href: string) => {
@@ -84,13 +87,16 @@ export default function Navigation({ className }: NavigationProps) {
               }}
               className="text-xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
             >
-              Landing Pro
+              {isRTL ? 'לנדינג פרו' : 'Landing Pro'}
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4 rtl:space-x-reverse">
+            <div className={cn(
+              'flex items-baseline space-x-4',
+              isRTL ? 'mr-10 space-x-reverse' : 'ml-10'
+            )}>
               {navigationItems.map((item) => (
                 <a
                   key={item.href}
@@ -114,8 +120,9 @@ export default function Navigation({ className }: NavigationProps) {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Toggle & CTA Button */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageToggle variant="button" />
             <a
               href="#contact"
               onClick={(e) => {
@@ -129,12 +136,13 @@ export default function Navigation({ className }: NavigationProps) {
                   : 'text-primary-600 bg-white hover:bg-gray-50'
               )}
             >
-              Get Quote
+              {t.nav.getQuote}
             </a>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile Language Toggle & Menu Button */}
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageToggle variant="button" className="scale-90" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
@@ -145,10 +153,10 @@ export default function Navigation({ className }: NavigationProps) {
               )}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
+              aria-label={isMobileMenuOpen ? t.a11y.closeMenu : t.a11y.openMenu}
             >
               <span className="sr-only">
-                {isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
+                {isMobileMenuOpen ? t.a11y.closeMenu : t.a11y.openMenu}
               </span>
               {/* Hamburger icon */}
               <svg
@@ -214,7 +222,7 @@ export default function Navigation({ className }: NavigationProps) {
             }}
             className="block px-3 py-2 mt-4 text-center text-white bg-primary-600 hover:bg-primary-700 rounded-md text-base font-medium transition-colors duration-200"
           >
-            Get Quote
+            {t.nav.getQuote}
           </a>
         </div>
       </div>

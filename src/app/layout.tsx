@@ -8,6 +8,7 @@ import { AnalyticsProvider } from '@/components/analytics';
 import { PerformanceProvider } from '@/components/performance/PerformanceProvider';
 import { ResourcePreloader, defaultCriticalResources, defaultPrefetchPages } from '@/components/performance/ResourcePreloader';
 import { SkipLinks } from '@/components/accessibility/SkipLinks';
+import { LanguageProvider } from '@/components/providers/LanguageProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -105,31 +106,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // For now, default to LTR. This can be made dynamic later based on user preference or URL
-  const locale = 'en';
-  const direction = getDirection(locale);
-
   return (
-    <html lang={locale} dir={direction} className="scroll-smooth">
+    <html className="scroll-smooth">
       <head>
         <StructuredData type="organization" />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
       >
-        <AnalyticsProvider>
-          <PerformanceProvider>
-            <SkipLinks />
-            <ResourcePreloader 
-              criticalResources={defaultCriticalResources}
-              prefetchPages={defaultPrefetchPages}
-            />
-            <Navigation />
-            <main id="main-content" className="relative" tabIndex={-1}>
-              {children}
-            </main>
-          </PerformanceProvider>
-        </AnalyticsProvider>
+        <LanguageProvider>
+          <AnalyticsProvider>
+            <PerformanceProvider>
+              <SkipLinks />
+              <ResourcePreloader 
+                criticalResources={defaultCriticalResources}
+                prefetchPages={defaultPrefetchPages}
+              />
+              <Navigation />
+              <main id="main-content" className="relative" tabIndex={-1}>
+                {children}
+              </main>
+            </PerformanceProvider>
+          </AnalyticsProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

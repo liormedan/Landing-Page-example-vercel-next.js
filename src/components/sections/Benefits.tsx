@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/hooks/useLanguage';
 
 // Icons as SVG components for better performance
 const SpeedIcon = ({ className }: { className?: string }) => (
@@ -48,30 +51,32 @@ interface PerformanceMetric {
 }
 
 const Benefits: React.FC = () => {
+  const { t } = useLanguage();
+  
   const benefits: BenefitItem[] = [
     {
       icon: SpeedIcon,
-      title: "Lightning Fast Performance",
-      description: "Vercel's edge network delivers your landing page in milliseconds worldwide with automatic optimization.",
+      title: t.benefits.items.performance.title,
+      description: t.benefits.items.performance.description,
       highlight: "< 2.5s LCP"
     },
     {
       icon: ShieldIcon,
-      title: "Enterprise-Grade Security",
-      description: "Built-in SSL certificates, DDoS protection, and secure deployment pipeline ensure your site is always protected.",
+      title: t.benefits.items.seo.title,
+      description: t.benefits.items.seo.description,
       highlight: "99.99% Uptime"
     },
     {
       icon: GlobeIcon,
-      title: "Global CDN Distribution",
-      description: "Your landing page is served from 100+ edge locations worldwide for optimal performance everywhere.",
+      title: t.benefits.items.responsive.title,
+      description: t.benefits.items.responsive.description,
       highlight: "100+ Locations"
     },
     {
       icon: TrendingUpIcon,
-      title: "Automatic Scaling",
-      description: "Handle traffic spikes effortlessly with serverless architecture that scales from zero to millions of visitors.",
-      highlight: "Infinite Scale"
+      title: t.benefits.items.rtl.title,
+      description: t.benefits.items.rtl.description,
+      highlight: t.benefits.items.analytics.title
     }
   ];
 
@@ -122,14 +127,13 @@ const Benefits: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge variant="info" className="mb-4">
-            Why Vercel?
+            {t.benefits.title}
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Built on the World&apos;s Fastest Platform
+            {t.benefits.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Your landing page deserves the best infrastructure. Vercel provides enterprise-grade 
-            performance, security, and scalability that converts visitors into customers.
+            {t.benefits.subtitle}
           </p>
         </div>
 

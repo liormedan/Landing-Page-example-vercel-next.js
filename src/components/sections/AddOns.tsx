@@ -15,6 +15,7 @@ import {
   Plus
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useLanguage } from '@/hooks/useLanguage'
 
 interface AddOn {
   id: string
@@ -25,87 +26,76 @@ interface AddOn {
   popular?: boolean
 }
 
-const addOns: AddOn[] = [
-  {
-    id: 'ab-testing',
-    name: 'A/B Testing Setup',
-    description: 'Optimize your conversion rates with professional A/B testing implementation and analytics tracking.',
-    icon: BarChart3,
-    benefits: [
-      'Multiple page variants',
-      'Conversion tracking setup',
-      'Statistical analysis tools',
-      'Performance reporting'
-    ]
-  },
-  {
-    id: 'crm-integration',
-    name: 'CRM Integration',
-    description: 'Seamlessly connect your landing page with your existing CRM system for automated lead management.',
-    icon: Database,
-    benefits: [
-      'Popular CRM connections',
-      'Automated lead capture',
-      'Custom field mapping',
-      'Real-time synchronization'
-    ]
-  },
-  {
-    id: 'advanced-copywriting',
-    name: 'Advanced Copywriting',
-    description: 'Professional copywriting services to craft compelling, conversion-focused content for your landing page.',
-    icon: PenTool,
-    benefits: [
-      'Conversion-optimized copy',
-      'Brand voice alignment',
-      'Multiple revision rounds',
-      'A/B testing variations'
-    ],
-    popular: true
-  },
-  {
-    id: 'custom-animations',
-    name: 'Custom Animations',
-    description: 'Enhance user experience with smooth, professional animations and micro-interactions.',
-    icon: Sparkles,
-    benefits: [
-      'Scroll-triggered animations',
-      'Hover effects',
-      'Loading transitions',
-      'Mobile-optimized performance'
-    ]
-  },
-  {
-    id: 'premium-images',
-    name: 'Premium Images & Graphics',
-    description: 'High-quality stock photos, custom graphics, and professional visual assets for your landing page.',
-    icon: Image,
-    benefits: [
-      'Premium stock photo license',
-      'Custom graphic design',
-      'Brand-consistent visuals',
-      'Optimized for web performance'
-    ]
-  },
-  {
-    id: 'monthly-support',
-    name: 'Monthly Support Package',
-    description: 'Ongoing maintenance, updates, and optimization services to keep your landing page performing at its best.',
-    icon: HeadphonesIcon,
-    benefits: [
-      'Regular performance monitoring',
-      'Content updates',
-      'Security maintenance',
-      'Priority support access'
-    ]
-  }
+export const AddOns: React.FC = () => {
+  const { t, locale } = useLanguage();
+
+  const addOns: AddOn[] = [
+    {
+      id: 'ab-testing',
+      name: t.addons.items.abTesting.title,
+      description: t.addons.items.abTesting.description,
+      icon: BarChart3,
+      benefits: t.addons.items.abTesting.features
+    },
+    {
+      id: 'crm-integration',
+      name: t.addons.items.crmIntegration.title,
+      description: t.addons.items.crmIntegration.description,
+      icon: Database,
+      benefits: t.addons.items.crmIntegration.features,
+      popular: t.addons.items.crmIntegration.popular
+    },
+    {
+      id: 'advanced-copywriting',
+      name: t.addons.items.copywriting.title,
+      description: t.addons.items.copywriting.description,
+      icon: PenTool,
+      benefits: t.addons.items.copywriting.features
+    },
+    {
+      id: 'custom-animations',
+      name: t.addons.items.animations.title,
+      description: t.addons.items.animations.description,
+      icon: Sparkles,
+      benefits: t.addons.items.animations.features
+    },
+    {
+      id: 'premium-images',
+      name: t.addons.items.premiumImages.title,
+      description: t.addons.items.premiumImages.description,
+      icon: Image,
+      benefits: t.addons.items.premiumImages.features
+    },
+    {
+      id: 'monthly-support',
+      name: t.addons.items.monthlySupport.title,
+      description: t.addons.items.monthlySupport.description,
+      icon: HeadphonesIcon,
+      benefits: t.addons.items.monthlySupport.features
+    }
 ]
 
 interface AddOnsProps {
   className?: string
 }
 
-export function AddOns({ className }: AddOnsProps) {
+  const handleContactForAddOn = () => {
+    // Scroll to contact form with add-on pre-selected
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handleCustomSolution = () => {
+    // Scroll to contact form for custom solutions
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
   const handleContactForAddOn = () => {
     // Scroll to contact form with add-on pre-selected
     const contactSection = document.getElementById('contact')
@@ -128,11 +118,10 @@ export function AddOns({ className }: AddOnsProps) {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Enhance Your Landing Page
+            {t.addons.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Take your landing page to the next level with our professional add-on services. 
-            Each service is designed to maximize your conversion potential.
+            {t.addons.subtitle}
           </p>
         </div>
 
@@ -146,7 +135,7 @@ export function AddOns({ className }: AddOnsProps) {
                 {addOn.popular && (
                   <div className="absolute -top-3 -right-3 z-10">
                     <Badge variant="default" className="bg-blue-500 hover:bg-blue-600">
-                      Popular
+                      {t.addons.popular}
                     </Badge>
                   </div>
                 )}
@@ -181,7 +170,7 @@ export function AddOns({ className }: AddOnsProps) {
                       className="w-full group"
                       onClick={handleContactForAddOn}
                     >
-                      Get Quote
+                      {t.addons.getQuote}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </CardContent>
@@ -195,12 +184,13 @@ export function AddOns({ className }: AddOnsProps) {
         <div className="bg-white rounded-2xl p-8 md:p-12 text-center shadow-sm border">
           <div className="max-w-3xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Need Something Custom?
+              {locale === 'he' ? 'צריכים משהו מותאם אישית?' : 'Need Something Custom?'}
             </h3>
             <p className="text-lg text-gray-600 mb-8">
-              Every project is unique. If you have specific requirements or need a combination 
-              of services not listed above, let&apos;s discuss a personalized solution that fits 
-              your exact needs and budget.
+              {locale === 'he' 
+                ? 'כל פרויקט הוא ייחודי. אם יש לכם דרישות ספציפיות או שאתם צריכים שילוב של שירותים שלא מופיעים למעלה, בואו נדבר על פתרון אישי שמתאים בדיוק לצרכים ולתקציב שלכם.'
+                : 'Every project is unique. If you have specific requirements or need a combination of services not listed above, let\'s discuss a personalized solution that fits your exact needs and budget.'
+              }
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -208,7 +198,7 @@ export function AddOns({ className }: AddOnsProps) {
                 onClick={handleCustomSolution}
                 className="bg-blue-600 hover:bg-blue-700 text-white"
               >
-                Discuss Custom Solution
+                {locale === 'he' ? 'בואו נדבר על פתרון מותאם' : 'Discuss Custom Solution'}
                 <ArrowRight className="h-5 w-5" />
               </Button>
               <Button 
@@ -216,11 +206,14 @@ export function AddOns({ className }: AddOnsProps) {
                 size="lg"
                 onClick={handleCustomSolution}
               >
-                Schedule a Call
+                {locale === 'he' ? 'קבעו שיחה' : 'Schedule a Call'}
               </Button>
             </div>
             <p className="text-sm text-gray-500 mt-4">
-              Free consultation • No commitment required • Quick response guaranteed
+              {locale === 'he' 
+                ? 'ייעוץ חינם • ללא התחייבות • מענה מהיר מובטח'
+                : 'Free consultation • No commitment required • Quick response guaranteed'
+              }
             </p>
           </div>
         </div>

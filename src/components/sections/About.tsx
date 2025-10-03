@@ -12,32 +12,35 @@ import {
   Star,
   Award
 } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const About: React.FC = () => {
+  const { t } = useLanguage();
+  
   const expertisePoints = [
     {
       icon: <Code2 className="w-8 h-8 text-blue-600" />,
-      title: "Full-Stack Development",
-      description: "Expert in React, Next.js, and modern web technologies with focus on performance and user experience."
+      title: t.about.title,
+      description: t.about.description
     },
     {
       icon: <Headphones className="w-8 h-8 text-purple-600" />,
-      title: "Audio Engineering Background",
-      description: "Unique combination of technical precision from audio engineering applied to web development."
+      title: t.benefits.items.performance.title,
+      description: t.benefits.items.performance.description
     },
     {
       icon: <Globe className="w-8 h-8 text-green-600" />,
-      title: "RTL & Internationalization",
-      description: "Specialized expertise in Hebrew/Arabic RTL layouts and multi-language website development."
+      title: t.benefits.items.rtl.title,
+      description: t.benefits.items.rtl.description
     },
     {
       icon: <Zap className="w-8 h-8 text-yellow-600" />,
-      title: "Performance Optimization",
-      description: "Obsessed with Core Web Vitals, loading speeds, and creating lightning-fast user experiences."
+      title: t.benefits.items.analytics.title,
+      description: t.benefits.items.analytics.description
     },
     {
       icon: <Heart className="w-8 h-8 text-red-600" />,
-      title: "Personal Approach",
+      title: t.benefits.items.support.title,
       description: "Direct communication, attention to detail, and commitment to delivering exactly what you need."
     }
   ];
